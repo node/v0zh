@@ -79,13 +79,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setResolvedTheme(resolved)
   }, [])
 
-  // Prevent flash by not rendering until mounted
-  if (!mounted) {
-    return <>{children}</>
-  }
+  // Always provide context, use default values before mount
+  const value = React.useMemo(
+    () => ({
+      theme,
+      resolvedTheme,
+      setTheme,
+    }),
+    [theme, resolvedTheme, setTheme]
+  )
 
   return (
-    <ThemeContext.Provider value={{ theme, resolvedTheme, setTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   )
