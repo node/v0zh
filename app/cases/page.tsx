@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Search, Eye, Heart, ExternalLink, Github, Upload } from "lucide-react"
-import { getAllCases, getCaseCategories } from "@/lib/markdown"
+import { getAllCases, getCaseCategories } from "@/lib/generated"
+
+export const runtime = "edge"
 
 export default function CasesPage() {
   const cases = getAllCases()

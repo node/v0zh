@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Eye, Heart, Share2, Bookmark, ArrowLeft, ExternalLink, Github } from "lucide-react"
-import { getCaseById, getAllCases } from "@/lib/markdown"
+import { getCaseById, getAllCases } from "@/lib/generated"
 import ReactMarkdown from "react-markdown"
+
+export const runtime = "edge"
 
 export default async function CaseDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
