@@ -6,8 +6,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Clock, Eye, Heart, Share2, Bookmark, ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { getArticleById, getAllArticles } from "@/lib/markdown"
+import { getArticleById, getAllArticles } from "@/lib/generated"
 import ReactMarkdown from "react-markdown"
+
+export const runtime = "edge"
 
 export default async function ArticleDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
